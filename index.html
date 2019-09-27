@@ -1,0 +1,56 @@
+<style>
+
+    body {
+        margin: 10%;
+        text-align: center;
+        font-size: 3vw; 
+    }
+
+    .blink_text {
+
+    animation:1s blinker linear infinite;
+    -webkit-animation:1s blinker linear infinite;
+    -moz-animation:1s blinker linear infinite;
+
+    color: red;
+    }
+
+    @-moz-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+    }
+
+    @-webkit-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+    }
+
+    @keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+    }
+
+
+</style>
+
+<h1>It is <span id="days">0</span> days until peak.</h1>
+
+<h1>Will this get done before peak?</h1>
+
+<h1 class="blink_text">NO</h1>
+
+<script>
+    function countdown(deadline) {
+        const today = Date.now();
+        return Math.floor((deadline - today) / 1000 / 60 / 60 / 24);
+    }
+
+    const peak = new Date("November 8 2019");
+    const days = countdown(peak);
+
+    const daysElement = document.getElementById("days");
+    daysElement.innerText = days;
+</script>
